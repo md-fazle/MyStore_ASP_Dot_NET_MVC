@@ -1,0 +1,38 @@
+﻿@model Category
+
+@section title {
+    @if (Model != null)
+    {
+        <h1>Category: @Model.Name</h1>
+    }
+    }
+@if (Model != null)
+{
+    <div class="container">
+        <form method="post" asp-controller="categories" asp-action="edit" class="form-horizontal">
+            <input type="hidden" asp-for="CategoryId" />
+            <div class="text-danger" asp-validation-summary="All"></div>
+            <div class="row mb-3">
+                <label asp-for="Name" class="col-sm-2 col-form-label">Name:</label>
+                <div class="col-sm-6">
+                    <input type="text" asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label asp-for="Description" class="col-sm-2 col-form-label">Description:</label>
+                <div class="col-sm-6">
+                    <input type="text" asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-2">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+        </form>
+    </div>
+}
